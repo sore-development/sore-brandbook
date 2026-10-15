@@ -1,0 +1,4064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sore — Official Brand Book & Asset Guidelines</title>
+  <meta name="description" content="Official brand book, design system, and digital asset library for Sore — high-fidelity music streaming bot. Clean, warm, minimalist dark aesthetic with zero blue or purple.">
+  <meta name="theme-color" content="#090A0D">
+  
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Sore — Official Brand Book & Asset Guidelines">
+  <meta property="og:description" content="Complete brand guidelines, color system, typography, and 43 production-ready assets for Sore.">
+  <meta property="og:image" content="banner/og-image.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('font/PlusJakartaSans/PlusJakartaSans[wght].ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --bg-base: #090A0D;
+      --bg-surface: #111317;
+      --bg-card: #16191E;
+      --bg-card-hover: #1C2027;
+      --bg-elevated: #22262F;
+      --bg-alpha: rgba(17, 19, 23, 0.75);
+
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-focus: #F05789;
+
+      /* Primary Warm Accents - Strictly NO blue or purple */
+      --sore-rose: #F05789;
+      --sore-rose-hover: #FF6E9D;
+      --sore-rose-glow: rgba(240, 87, 137, 0.18);
+      --sore-amber: #E58B43;
+      --sore-amber-glow: rgba(229, 139, 67, 0.18);
+      --sore-gold: #F59E0B;
+      
+      /* Neutrals */
+      --text-main: #FFFFFF;
+      --text-muted: #9CA3AF;
+      --text-dim: #6B7280;
+      --text-inverse: #090A0D;
+
+      /* Semantic status */
+      --status-success: #10B981;
+      --status-warning: #F59E0B;
+      --status-danger: #EF4444;
+
+      /* Typography */
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Radii & Shadows */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.65);
+      --shadow-rose: 0 8px 30px rgba(240, 87, 137, 0.22);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: var(--sore-rose);
+      color: #FFFFFF;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #232730;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--sore-rose);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    /* Grid container */
+    .container {
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Ambient background gradient mesh (Sunset warm tone, zero blue/purple) */
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 600px;
+      background: radial-gradient(circle at 50% 10%, rgba(240, 87, 137, 0.12) 0%, rgba(229, 139, 67, 0.05) 40%, rgba(9, 10, 13, 0) 75%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ==========================================================================
+       NAVBAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 10, 13, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 20px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #14171D;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      background: rgba(240, 87, 137, 0.15);
+      color: var(--sore-rose);
+      border: 1px solid rgba(240, 87, 137, 0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-main);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--sore-rose);
+      transition: width 0.25s ease;
+      border-radius: var(--radius-full);
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--sore-rose);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(240, 87, 137, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--sore-rose-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-rose);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-medium);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .btn-icon {
+      padding: 10px;
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .btn-icon:hover {
+      color: var(--text-main);
+      border-color: var(--border-medium);
+      background: var(--bg-card-hover);
+    }
+
+    /* Mobile hamburger */
+    .mobile-menu-btn {
+      display: none;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      position: relative;
+      padding: 80px 0 60px;
+      z-index: 1;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(240, 87, 137, 0.1);
+      border: 1px solid rgba(240, 87, 137, 0.25);
+      color: var(--sore-rose);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 20%, var(--sore-rose) 80%, var(--sore-amber) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    /* Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .metric-card:hover {
+      border-color: rgba(240, 87, 137, 0.35);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--sore-rose), transparent);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .metric-card:hover::before {
+      opacity: 1;
+    }
+
+    .metric-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.1;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .metric-sub {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       SECTION HEADERS
+       ========================================================================== */
+    .section {
+      padding: 80px 0;
+      position: relative;
+      border-top: 1px solid var(--border-subtle);
+      z-index: 1;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sore-rose);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: var(--sore-rose);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       SECTION 1: BRAND STORY & PILLARS
+       ========================================================================== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .pillar-card:hover {
+      border-color: rgba(240, 87, 137, 0.4);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pillar-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: rgba(240, 87, 137, 0.12);
+      border: 1px solid rgba(240, 87, 137, 0.25);
+      color: var(--sore-rose);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .pillar-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .pillar-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       SECTION 2: LOGO SYSTEM & GUIDELINES
+       ========================================================================== */
+    .logo-showcase-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .logo-preview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      min-height: 380px;
+      overflow: hidden;
+    }
+
+    .logo-stage {
+      width: 240px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-stage img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+      transition: transform 0.3s ease;
+    }
+
+    .logo-stage:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Clear space markers */
+    .clearspace-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 280px;
+      border: 1px dashed rgba(240, 87, 137, 0.45);
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
+    .clearspace-tag {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--sore-rose);
+      background: rgba(240, 87, 137, 0.1);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .logo-info-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .rules-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .rules-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .rules-item-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: var(--radius-full);
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--status-success);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Do's & Don'ts */
+    .dodont-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .dodont-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dodont-visual {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0E1014;
+      position: relative;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 20px;
+    }
+
+    .dodont-visual img {
+      max-width: 90px;
+      max-height: 90px;
+      object-fit: contain;
+    }
+
+    .dodont-visual.skew img {
+      transform: skewX(-20deg) scaleX(1.3);
+    }
+
+    .dodont-visual.rotate img {
+      transform: rotate(45deg);
+    }
+
+    .dodont-visual.recolor img {
+      filter: hue-rotate(220deg) saturate(3);
+    }
+
+    .dodont-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      text-transform: uppercase;
+    }
+
+    .dodont-badge.do {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .dodont-badge.dont {
+      background: rgba(239, 68, 68, 0.18);
+      color: #F87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .dodont-desc {
+      padding: 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       SECTION 3: COLOR SYSTEM
+       ========================================================================== */
+    .color-palette-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .swatch-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .swatch-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .swatch-color {
+      height: 120px;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+    }
+
+    .swatch-copy-hint {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .swatch-card:hover .swatch-copy-hint {
+      opacity: 1;
+    }
+
+    .swatch-body {
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .swatch-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .swatch-token {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--sore-rose);
+    }
+
+    .swatch-values {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 10px;
+      margin-top: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .swatch-hex {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .swatch-role {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* ==========================================================================
+       SECTION 4: TYPOGRAPHY
+       ========================================================================== */
+    .typo-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin-bottom: 36px;
+    }
+
+    .typo-scale-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      align-items: baseline;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .typo-scale-row:last-child {
+      border-bottom: none;
+    }
+
+    .typo-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .typo-meta-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .typo-meta-spec {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    .typo-specimen {
+      color: var(--text-main);
+      overflow-wrap: break-word;
+    }
+
+    /* Live Type Tester */
+    .type-tester {
+      background: #0E1015;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .type-tester-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      font-weight: 600;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+    }
+
+    .type-tester-input:focus {
+      border-color: var(--sore-rose);
+    }
+
+    .type-tester-controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .type-tester-slider {
+      accent-color: var(--sore-rose);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       SECTION 5: ALL ASSETS EXPLORER (43 ASSETS)
+       ========================================================================== */
+    .assets-filter-sticky {
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+      background: rgba(9, 10, 13, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .filter-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 260px;
+      max-width: 480px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      background: #14171D;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 14px 10px 40px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--sore-rose);
+      background: #181B22;
+      box-shadow: 0 0 0 3px rgba(240, 87, 137, 0.15);
+    }
+
+    .filter-controls-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .select-dropdown {
+      background: #14171D;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 9px 14px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .select-dropdown:focus {
+      border-color: var(--sore-rose);
+    }
+
+    .view-toggle {
+      display: flex;
+      background: #14171D;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .view-toggle-btn {
+      padding: 8px 12px;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .view-toggle-btn.active {
+      background: var(--sore-rose);
+      color: #FFFFFF;
+    }
+
+    /* Category Pill Tabs */
+    .category-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .category-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      background: #14171D;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .category-pill:hover {
+      color: var(--text-main);
+      border-color: var(--border-medium);
+      background: #1A1D24;
+    }
+
+    .category-pill.active {
+      background: rgba(240, 87, 137, 0.15);
+      border-color: var(--sore-rose);
+      color: var(--sore-rose);
+    }
+
+    .pill-count {
+      font-size: 0.72rem;
+      padding: 1px 6px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+    }
+
+    .category-pill.active .pill-count {
+      background: var(--sore-rose);
+      color: #FFFFFF;
+    }
+
+    /* Asset Grid Display */
+    .assets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 22px;
+    }
+
+    .asset-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .asset-card:hover {
+      border-color: rgba(240, 87, 137, 0.4);
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .asset-thumb-wrap {
+      width: 100%;
+      height: 200px;
+      background: #0D0F13;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* Checkered pattern for transparent PNG / SVG / GIF */
+    .asset-thumb-wrap.checkered {
+      background-image: 
+        linear-gradient(45deg, #15181F 25%, transparent 25%), 
+        linear-gradient(-45deg, #15181F 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #15181F 75%), 
+        linear-gradient(-45deg, transparent 75%, #15181F 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+
+    .asset-thumb {
+      max-width: 90%;
+      max-height: 85%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .asset-card:hover .asset-thumb {
+      transform: scale(1.04);
+    }
+
+    /* Video player in thumb */
+    .asset-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .asset-badge-format {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      background: rgba(9, 10, 13, 0.75);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .asset-badge-format.video {
+      background: rgba(240, 87, 137, 0.2);
+      color: var(--sore-rose);
+      border-color: rgba(240, 87, 137, 0.35);
+    }
+
+    .asset-zoom-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: rgba(9, 10, 13, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.2s ease;
+    }
+
+    .asset-card:hover .asset-zoom-btn {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .asset-zoom-btn:hover {
+      background: var(--sore-rose);
+      color: #FFFFFF;
+      border-color: var(--sore-rose);
+    }
+
+    .asset-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .asset-meta-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .asset-category-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--sore-amber);
+    }
+
+    .asset-size-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    .asset-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+
+    .asset-filename {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      word-break: break-all;
+    }
+
+    .asset-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .asset-specs {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background: #111317;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .asset-spec-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .asset-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .btn-copy-path {
+      background: #13151A;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-copy-path:hover {
+      background: #1A1E26;
+      border-color: var(--sore-rose);
+      color: var(--sore-rose);
+    }
+
+    .btn-download {
+      background: rgba(240, 87, 137, 0.12);
+      border: 1px solid rgba(240, 87, 137, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      color: var(--sore-rose);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-download:hover {
+      background: var(--sore-rose);
+      color: #FFFFFF;
+    }
+
+    /* Table List View */
+    .assets-table-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      display: none;
+    }
+
+    .assets-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .assets-table th {
+      padding: 16px 20px;
+      background: #101216;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .assets-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      vertical-align: middle;
+    }
+
+    .assets-table tr:hover td {
+      background: var(--bg-card-hover);
+      color: var(--text-main);
+    }
+
+    .table-thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: #0E1015;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .table-thumb img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* ==========================================================================
+       SECTION 6: MOTION & VIDEO LAB
+       ========================================================================== */
+    .motion-lab-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+    }
+
+    .motion-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .bg-switcher-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bg-switcher-btn {
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      color: var(--text-muted);
+      background: #14171E;
+    }
+
+    .bg-switcher-btn.active {
+      background: var(--sore-rose);
+      color: #FFFFFF;
+      border-color: var(--sore-rose);
+    }
+
+    .motion-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .motion-feature-card {
+      background: #0D0F13;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .motion-stage {
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s ease;
+    }
+
+    .motion-stage.bg-dark { background: #0A0B0E; }
+    .motion-stage.bg-white { background: #FFFFFF; }
+    .motion-stage.bg-gradient { background: linear-gradient(135deg, #1C1F26 0%, #2A1520 100%); }
+    .motion-stage.bg-checkered {
+      background-image: 
+        linear-gradient(45deg, #1C1F26 25%, transparent 25%), 
+        linear-gradient(-45deg, #1C1F26 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #1C1F26 75%), 
+        linear-gradient(-45deg, transparent 75%, #1C1F26 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+
+    .motion-stage video, .motion-stage img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .motion-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: #14171D;
+    }
+
+    /* ==========================================================================
+       SECTION 7: IN-ACTION CONTEXT MOCKUPS
+       ========================================================================== */
+    .mockup-tabs {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+
+    .mockup-tab-btn {
+      padding: 8px 18px;
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .mockup-tab-btn.active {
+      background: var(--sore-rose);
+      color: #FFFFFF;
+      border-color: var(--sore-rose);
+    }
+
+    .mockup-display {
+      background: #0E1015;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 440px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Discord Music Card Mockup */
+    .discord-card-mock {
+      width: 100%;
+      max-width: 854px;
+      background: #14171E;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .discord-mock-banner {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      background: #000000;
+    }
+
+    .discord-mock-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .discord-mock-content {
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: #12141A;
+    }
+
+    .discord-track-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .discord-track-art {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: #1E222B;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .discord-track-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .discord-track-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .discord-track-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .discord-track-artist {
+      font-size: 0.85rem;
+      color: var(--sore-rose);
+      font-weight: 600;
+    }
+
+    .discord-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .discord-btn-play {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--sore-rose);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(240, 87, 137, 0.4);
+    }
+
+    /* ==========================================================================
+       SECTION 8: BRAND VOICE & RULES
+       ========================================================================== */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .voice-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+
+    .voice-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--sore-rose);
+      background: rgba(240, 87, 137, 0.12);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+    }
+
+    .voice-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .voice-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       SECTION 9: EXPORT & CODE UTILITIES
+       ========================================================================== */
+    .code-box {
+      background: #0A0C0F;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #D1D5DB;
+      overflow-x: auto;
+      line-height: 1.7;
+    }
+
+    .code-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .code-box-title {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================================================
+       MODAL LIGHTBOX
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(4, 5, 7, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: #14171D;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      max-width: 1100px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .modal-media-stage {
+      background: #090A0E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+    }
+
+    .modal-media-stage.checkered {
+      background-image: 
+        linear-gradient(45deg, #15181F 25%, transparent 25%), 
+        linear-gradient(-45deg, #15181F 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #15181F 75%), 
+        linear-gradient(-45deg, transparent 75%, #15181F 75%);
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+    }
+
+    .modal-media-stage img, .modal-media-stage video {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.6));
+    }
+
+    .modal-manifest-view {
+      width: 100%;
+      max-height: 70vh;
+      overflow-y: auto;
+      background: #08090C;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #34D399;
+      white-space: pre-wrap;
+    }
+
+    .modal-sidebar {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 1px solid var(--border-subtle);
+      background: #14171E;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border-subtle);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--sore-rose);
+      border-color: var(--sore-rose);
+    }
+
+    .modal-nav-btns {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    /* ==========================================================================
+       TOAST NOTIFICATION
+       ========================================================================== */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 2000;
+      background: #181C24;
+      border: 1px solid var(--sore-rose);
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      transform: translateY(100px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .toast-icon {
+      color: var(--status-success);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer {
+      background: #08090B;
+      border-top: 1px solid var(--border-subtle);
+      padding: 60px 0 36px;
+      margin-top: 80px;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-brand-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link:hover {
+      color: var(--sore-rose);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .dodont-grid { grid-template-columns: repeat(2, 1fr); }
+      .color-palette-grid { grid-template-columns: repeat(2, 1fr); }
+      .voice-grid { grid-template-columns: 1fr; }
+      .logo-showcase-grid { grid-template-columns: 1fr; }
+      .modal-card { grid-template-columns: 1fr; max-height: 95vh; }
+      .modal-sidebar { border-left: none; border-top: 1px solid var(--border-subtle); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .dodont-grid { grid-template-columns: 1fr; }
+      .color-palette-grid { grid-template-columns: 1fr; }
+      .motion-grid { grid-template-columns: 1fr; }
+      .typo-scale-row { grid-template-columns: 1fr; gap: 8px; }
+      .filter-top-row { flex-direction: column; align-items: stretch; }
+      .search-box { max-width: 100%; }
+      .hero { padding: 50px 0 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glow -->
+  <div class="ambient-glow"></div>
+
+  <!-- ==========================================================================
+       NAVBAR
+       ========================================================================== -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand">
+        <div class="nav-brand-logo">
+          <img src="favicon/android-chrome-192x192.png" alt="Sore Logo Mark">
+        </div>
+        <div class="nav-brand-text">
+          <div class="nav-brand-title">
+            SORE <span class="nav-badge">Brand Book v2.0</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#logo" class="nav-link">Logo Rules</a>
+        <a href="#colors" class="nav-link">Color Tokens</a>
+        <a href="#typography" class="nav-link">Typography</a>
+        <a href="#assets" class="nav-link active">All Assets (43)</a>
+        <a href="#motion" class="nav-link">Motion Lab</a>
+        <a href="#mockups" class="nav-link">Showcase</a>
+        <a href="#guidelines" class="nav-link">Guidelines</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="#assets" class="btn btn-primary" onclick="filterCategory('All Assets')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          Explore 43 Assets
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          Official Brand Identity & Digital Asset Portal
+        </div>
+
+        <h1 class="hero-title">
+          The Definitive Brand Book for <span class="gradient-text">Sore</span>
+        </h1>
+
+        <p class="hero-desc">
+          Official identity guidelines, color tokens, typography system, and complete repository of <strong>43 production-ready assets</strong> for Sore — the high-fidelity music streaming platform. Clean, warm, minimalist dark aesthetic crafted with zero blue or purple.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#assets" class="btn btn-primary" style="padding: 12px 24px; font-size: 0.95rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Explore Asset Library (43)
+          </a>
+          <a href="#colors" class="btn btn-secondary" style="padding: 12px 22px; font-size: 0.95rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a7 7 0 0 0 0 14v6"></path></svg>
+            Copy Color Tokens
+          </a>
+          <button class="btn btn-secondary" onclick="copyAllCssVars()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy CSS Variables
+          </button>
+        </div>
+
+        <!-- Metric highlights -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-val" style="color: var(--sore-rose);">43</div>
+            <div class="metric-label">Production Assets</div>
+            <div class="metric-sub">Verified & complete catalog</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">6</div>
+            <div class="metric-label">Asset Categories</div>
+            <div class="metric-sub">Brand, Logo, Banner, Motion, BG, Favicon</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">4K UHD</div>
+            <div class="metric-label">Master Quality</div>
+            <div class="metric-sub">Up to 4096×4096 px & Infinite Vectors</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val" style="color: var(--sore-amber);">Sunset</div>
+            <div class="metric-label">Warm Carbon Theme</div>
+            <div class="metric-sub">0% Blue / Purple — Pure Warmth</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 1: OVERVIEW & BRAND PILLARS
+       ========================================================================== -->
+  <section id="overview" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Philosophy & Identity</div>
+        <h2 class="section-title">Acoustic Harmony at Dusk</h2>
+        <p class="section-desc">
+          The name <strong>"Sore"</strong> (Indonesian for twilight / late afternoon / golden hour) evokes the relaxing ambiance of listening to your favorite songs as day turns into night — unwinding with pure, warm audio clarity.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </div>
+          <h3 class="pillar-title">Acoustic Warmth</h3>
+          <p class="pillar-text">
+            Warm coral rose and sunset amber tones radiate a cozy, intimate, and relaxing listening atmosphere for communities.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3 class="pillar-title">Modern & Minimalist</h3>
+          <p class="pillar-text">
+            Clean design with ample breathing room. Distraction-free interface built for both desktop displays and mobile screens.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+          </div>
+          <h3 class="pillar-title">Studio-Grade Fidelity</h3>
+          <p class="pillar-text">
+            Studio precision and lossless audio performance mirrored in pixel-perfect assets scaling up to 4K and vector formats.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3 class="pillar-title">Community Centered</h3>
+          <p class="pillar-text">
+            Crafted to empower Discord servers and music communities with cohesive banners, ticket channels, and playback embeds.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 2: LOGO SYSTEM & RULES
+       ========================================================================== -->
+  <section id="logo" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Logo Guidelines</div>
+        <h2 class="section-title">Logo Mark & Construction</h2>
+        <p class="section-desc">
+          The official Sore emblem embodies acoustic waveforms and the serene solar disc at dusk. Ensure all implementations strictly adhere to clear space rules and background contrast.
+        </p>
+      </div>
+
+      <div class="logo-showcase-grid">
+        <div class="logo-preview-card">
+          <div class="clearspace-box">
+            <span class="clearspace-tag">Clear Space = 0.5X</span>
+          </div>
+          <div class="logo-stage">
+            <img src="logo/logo.png" alt="Sore Official Master Logo" id="interactiveLogoImg">
+          </div>
+          <div style="margin-top: 24px; font-size: 0.82rem; color: var(--text-dim); text-align: center;">
+            Master Logo with Sunset Aura Halo & Soundmark
+          </div>
+        </div>
+
+        <div class="logo-info-panel">
+          <div>
+            <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Construction Specifications</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              The Sore monogram is engineered with geometric precision and subtle curve transitions.
+            </p>
+
+            <ul class="rules-list">
+              <li class="rules-item">
+                <span class="rules-item-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <span><strong>Clear Space:</strong> Maintain a minimum clear space of 0.5X around the perimeter of the mark.</span>
+              </li>
+              <li class="rules-item">
+                <span class="rules-item-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <span><strong>Minimum Digital Size:</strong> 24×24 px for UI icons, 48×48 px for bot avatars.</span>
+              </li>
+              <li class="rules-item">
+                <span class="rules-item-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <span><strong>Background Pairing:</strong> Always place on dark carbon/obsidian (#090A0D) or high-contrast backgrounds.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="logo/sore-logo.svg" download class="btn btn-secondary" style="font-size: 0.82rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download SVG Vector
+            </a>
+            <a href="brand/brand-logo-hd-1x1.png" download class="btn btn-secondary" style="font-size: 0.82rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download 4K PNG (4096px)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Do's and Don'ts -->
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 20px;">Do's & Don'ts (Usage Standards)</h3>
+      <div class="dodont-grid">
+        <div class="dodont-card">
+          <div class="dodont-visual">
+            <span class="dodont-badge do">✓ DO</span>
+            <img src="logo/logo-hd-512.png" alt="Do use official mark">
+          </div>
+          <div class="dodont-desc">
+            <strong>Use Official Variants</strong><br>
+            Always render official vector or high-resolution PNG marks on dark or transparent backgrounds.
+          </div>
+        </div>
+
+        <div class="dodont-card">
+          <div class="dodont-visual recolor">
+            <span class="dodont-badge dont">✗ DON'T</span>
+            <img src="logo/logo-hd-512.png" alt="Don't use blue or purple">
+          </div>
+          <div class="dodont-desc">
+            <strong>Do Not Recolor to Blue or Purple</strong><br>
+            The official Sore identity is Sunset Rose & Carbon. Never tint or recolor to blue, purple, or indigo.
+          </div>
+        </div>
+
+        <div class="dodont-card">
+          <div class="dodont-visual skew">
+            <span class="dodont-badge dont">✗ DON'T</span>
+            <img src="logo/logo-hd-512.png" alt="Don't distort">
+          </div>
+          <div class="dodont-desc">
+            <strong>Do Not Stretch or Distort</strong><br>
+            Always preserve the 1:1 square aspect ratio. Never skew, squash, or deform the logo.
+          </div>
+        </div>
+
+        <div class="dodont-card">
+          <div class="dodont-visual rotate">
+            <span class="dodont-badge dont">✗ DON'T</span>
+            <img src="logo/logo-hd-512.png" alt="Don't rotate">
+          </div>
+          <div class="dodont-desc">
+            <strong>Do Not Rotate or Tilt</strong><br>
+            Keep the mark horizontally aligned. Never tilt, slant, or rotate the orientation.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: COLOR SYSTEM & TOKENS
+       ========================================================================== -->
+  <section id="colors" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Color System</div>
+        <h2 class="section-title">Color Palette & Semantic Tokens</h2>
+        <p class="section-desc">
+          The Sore color system revolves around warm sunset rose (#F05789) and dusk amber paired with deep obsidian carbon. <em>Strictly free from blue or purple tones</em>, delivering an exclusive, eye-friendly, and soothing visual identity.
+        </p>
+      </div>
+
+      <div class="color-palette-grid">
+        <!-- Color 1 -->
+        <div class="swatch-card" onclick="copyColor('#F05789', 'Sore Sunset Rose')">
+          <div class="swatch-color" style="background: #F05789;">
+            <span class="swatch-copy-hint">Click to Copy HEX</span>
+          </div>
+          <div class="swatch-body">
+            <div class="swatch-name">Sore Sunset Rose</div>
+            <div class="swatch-token">--sore-rose</div>
+            <div class="swatch-values">
+              <span class="swatch-hex">#F05789</span>
+              <span class="swatch-role">Primary Accent</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">rgb(240, 87, 137) • hsl(340, 83%, 64%)</div>
+          </div>
+        </div>
+
+        <!-- Color 2 -->
+        <div class="swatch-card" onclick="copyColor('#E58B43', 'Dusk Amber')">
+          <div class="swatch-color" style="background: #E58B43;">
+            <span class="swatch-copy-hint">Click to Copy HEX</span>
+          </div>
+          <div class="swatch-body">
+            <div class="swatch-name">Dusk Amber</div>
+            <div class="swatch-token">--sore-amber</div>
+            <div class="swatch-values">
+              <span class="swatch-hex">#E58B43</span>
+              <span class="swatch-role">Warm Atmosphere</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">rgb(229, 139, 67) • hsl(27, 77%, 58%)</div>
+          </div>
+        </div>
+
+        <!-- Color 3 -->
+        <div class="swatch-card" onclick="copyColor('#090A0D', 'Obsidian Canvas')">
+          <div class="swatch-color" style="background: #090A0D; border-bottom: 1px solid var(--border-subtle);">
+            <span class="swatch-copy-hint">Click to Copy HEX</span>
+          </div>
+          <div class="swatch-body">
+            <div class="swatch-name">Obsidian Canvas</div>
+            <div class="swatch-token">--bg-base</div>
+            <div class="swatch-values">
+              <span class="swatch-hex">#090A0D</span>
+              <span class="swatch-role">App Background</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">rgb(9, 10, 13) • Base dark canvas</div>
+          </div>
+        </div>
+
+        <!-- Color 4 -->
+        <div class="swatch-card" onclick="copyColor('#16191E', 'Carbon Surface')">
+          <div class="swatch-color" style="background: #16191E; border-bottom: 1px solid var(--border-subtle);">
+            <span class="swatch-copy-hint">Click to Copy HEX</span>
+          </div>
+          <div class="swatch-body">
+            <div class="swatch-name">Carbon Surface</div>
+            <div class="swatch-token">--bg-card</div>
+            <div class="swatch-values">
+              <span class="swatch-hex">#16191E</span>
+              <span class="swatch-role">Cards & Containers</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">rgb(22, 25, 30) • Component background</div>
+          </div>
+        </div>
+
+        <!-- Color 5 -->
+        <div class="swatch-card" onclick="copyColor('#22262F', 'Elevated Slate')">
+          <div class="swatch-color" style="background: #22262F;">
+            <span class="swatch-copy-hint">Click to Copy HEX</span>
+          </div>
+          <div class="swatch-body">
+            <div class="swatch-name">Elevated Slate</div>
+            <div class="swatch-token">--bg-elevated</div>
+            <div class="swatch-values">
+              <span class="swatch-hex">#22262F</span>
+              <span class="swatch-role">Modals & Popovers</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">rgb(34, 38, 47) • Floating dialogs</div>
+          </div>
+        </div>
+
+        <!-- Color 6 -->
+        <div class="swatch-card" onclick="copyColor('#FFFFFF', 'Pure Light')">
+          <div class="swatch-color" style="background: #FFFFFF;">
+            <span class="swatch-copy-hint" style="background: #000; color: #fff;">Click to Copy HEX</span>
+          </div>
+          <div class="swatch-body">
+            <div class="swatch-name">Pure Light</div>
+            <div class="swatch-token">--text-main</div>
+            <div class="swatch-values">
+              <span class="swatch-hex">#FFFFFF</span>
+              <span class="swatch-role">Primary Text / Heading</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">rgb(255, 255, 255) • Maximum contrast</div>
+          </div>
+        </div>
+
+        <!-- Color 7 -->
+        <div class="swatch-card" onclick="copyColor('#9CA3AF', 'Muted Silver')">
+          <div class="swatch-color" style="background: #9CA3AF;">
+            <span class="swatch-copy-hint" style="background: #000; color: #fff;">Click to Copy HEX</span>
+          </div>
+          <div class="swatch-body">
+            <div class="swatch-name">Muted Silver</div>
+            <div class="swatch-token">--text-muted</div>
+            <div class="swatch-values">
+              <span class="swatch-hex">#9CA3AF</span>
+              <span class="swatch-role">Secondary Text</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">rgb(156, 163, 175) • Body description</div>
+          </div>
+        </div>
+
+        <!-- Color 8 -->
+        <div class="swatch-card" onclick="copyColor('#10B981', 'Emerald Playing Status')">
+          <div class="swatch-color" style="background: #10B981;">
+            <span class="swatch-copy-hint">Click to Copy HEX</span>
+          </div>
+          <div class="swatch-body">
+            <div class="swatch-name">Emerald Playing</div>
+            <div class="swatch-token">--status-playing</div>
+            <div class="swatch-values">
+              <span class="swatch-hex">#10B981</span>
+              <span class="swatch-role">Online / Active Voice</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">rgb(16, 185, 129) • Streaming indicator</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: TYPOGRAPHY
+       ========================================================================== -->
+  <section id="typography" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Typography</div>
+        <h2 class="section-title">Type Hierarchy & Font Pairing</h2>
+        <p class="section-desc">
+          Sore typography pairs <strong>Plus Jakarta Sans</strong> for sharp, modern user interface legibility with <strong>JetBrains Mono</strong> for music metadata, track timecodes, and technical tokens.
+        </p>
+      </div>
+
+      <div class="typo-container">
+        <div class="typo-scale-row">
+          <div class="typo-meta">
+            <span class="typo-meta-name">Display Heading</span>
+            <span class="typo-meta-spec">48px / Bold (800)</span>
+          </div>
+          <div class="typo-specimen" style="font-size: 2.8rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em;">
+            Studio-Grade Acoustic Music at Twilight.
+          </div>
+        </div>
+
+        <div class="typo-scale-row">
+          <div class="typo-meta">
+            <span class="typo-meta-name">Heading 1</span>
+            <span class="typo-meta-spec">32px / Bold (700)</span>
+          </div>
+          <div class="typo-specimen" style="font-size: 2rem; font-weight: 700; line-height: 1.25;">
+            Sore Music Bot & Audio Player Interface
+          </div>
+        </div>
+
+        <div class="typo-scale-row">
+          <div class="typo-meta">
+            <span class="typo-meta-name">Heading 2</span>
+            <span class="typo-meta-spec">24px / SemiBold (600)</span>
+          </div>
+          <div class="typo-specimen" style="font-size: 1.5rem; font-weight: 600; line-height: 1.3;">
+            Warm Melodies & Crystal-Clear Sound Delivery
+          </div>
+        </div>
+
+        <div class="typo-scale-row">
+          <div class="typo-meta">
+            <span class="typo-meta-name">Body Text</span>
+            <span class="typo-meta-spec">16px / Regular (400)</span>
+          </div>
+          <div class="typo-specimen" style="font-size: 1rem; font-weight: 400; line-height: 1.6; color: var(--text-muted);">
+            Sore delivers gapless, lossless audio streaming to your Discord community. Featuring interactive controls, modular now-playing cards, and effortless queue management.
+          </div>
+        </div>
+
+        <div class="typo-scale-row">
+          <div class="typo-meta">
+            <span class="typo-meta-name">Monospace Code</span>
+            <span class="typo-meta-spec">13px / JetBrains Mono</span>
+          </div>
+          <div class="typo-specimen" style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--sore-rose);">
+            sore.play("Lofi Sunset Sessions - 24/7 High-Bitrate FLAC") [03:42 / 24-bit 96kHz]
+          </div>
+        </div>
+
+        <!-- Live Type Tester -->
+        <div class="type-tester">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px;">
+            Live Interactive Type Tester
+          </div>
+          <input type="text" class="type-tester-input" id="typeTesterInput" value="Relax and enjoy high-fidelity music with Sore Bot." oninput="updateTypeTester()">
+          <div class="type-tester-controls">
+            <span>Font Size: <strong id="fontSizeLabel">24px</strong></span>
+            <input type="range" min="14" max="56" value="24" class="type-tester-slider" id="fontSlider" oninput="changeFontSize(this.value)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: ALL ASSETS EXPLORER (43 ASSETS)
+       ========================================================================== -->
+  <section id="assets" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Asset Repository</div>
+        <h2 class="section-title">Complete Asset Catalog (43 Files)</h2>
+        <p class="section-desc">
+          All official production assets across <strong>brand</strong>, <strong>logo</strong>, <strong>banner</strong>, <strong>bg</strong>, <strong>favicon</strong>, and <strong>motion</strong> directories are indexed below (the <em>discord</em> and <em>other</em> folders are excluded).
+        </p>
+      </div>
+
+      <!-- Filter Controls Toolbar -->
+      <div class="assets-filter-sticky">
+        <div class="filter-top-row">
+          <!-- Search input -->
+          <div class="search-box">
+            <span class="search-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <input type="text" class="search-input" id="assetSearchInput" placeholder="Search file name, format (PNG, SVG, MP4), resolution..." oninput="handleSearch(this.value)">
+          </div>
+
+          <!-- Controls right -->
+          <div class="filter-controls-right">
+            <select class="select-dropdown" id="formatSelect" onchange="handleFormatFilter(this.value)">
+              <option value="ALL">All Formats</option>
+              <option value="PNG">PNG Image</option>
+              <option value="SVG">SVG Vector</option>
+              <option value="MP4">MP4 Video</option>
+              <option value="WEBM">WebM Video</option>
+              <option value="GIF">GIF Animated</option>
+              <option value="ICO">ICO Favicon</option>
+              <option value="JSON">Web Manifest</option>
+            </select>
+
+            <select class="select-dropdown" id="sortSelect" onchange="handleSort(this.value)">
+              <option value="default">Sort: Category</option>
+              <option value="name_asc">Name (A - Z)</option>
+              <option value="name_desc">Name (Z - A)</option>
+              <option value="size_desc">Size (Largest)</option>
+              <option value="size_asc">Size (Smallest)</option>
+            </select>
+
+            <div class="view-toggle">
+              <button class="view-toggle-btn active" id="btnViewGrid" onclick="setViewMode('grid')" title="Grid Cards View">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </button>
+              <button class="view-toggle-btn" id="btnViewTable" onclick="setViewMode('table')" title="Detailed Table View">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Pills -->
+        <div class="category-pills">
+          <button class="category-pill active" onclick="filterCategory('All Assets', this)">
+            All Assets <span class="pill-count" id="countAll">43</span>
+          </button>
+          <button class="category-pill" onclick="filterCategory('Logos & Marks', this)">
+            Logos & Marks <span class="pill-count">6</span>
+          </button>
+          <button class="category-pill" onclick="filterCategory('Brand System', this)">
+            Brand System <span class="pill-count">3</span>
+          </button>
+          <button class="category-pill" onclick="filterCategory('Banners & Headers', this)">
+            Banners & Headers <span class="pill-count">17</span>
+          </button>
+          <button class="category-pill" onclick="filterCategory('Motion & Video', this)">
+            Motion & Video <span class="pill-count">8</span>
+          </button>
+          <button class="category-pill" onclick="filterCategory('Icons & Favicons', this)">
+            Icons & Favicons <span class="pill-count">7</span>
+          </button>
+          <button class="category-pill" onclick="filterCategory('Backgrounds', this)">
+            Backgrounds <span class="pill-count">2</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Result Counter -->
+      <div style="margin-bottom: 20px; font-size: 0.88rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center;">
+        <div>Showing <strong id="displayedCount" style="color: #FFFFFF;">43</strong> of 43 assets</div>
+        <div id="filterStatus" style="color: var(--sore-rose); font-size: 0.82rem;"></div>
+      </div>
+
+      <!-- Assets Grid Container -->
+      <div class="assets-grid" id="assetsGrid"></div>
+
+      <!-- Assets Table Container -->
+      <div class="assets-table-wrap" id="assetsTableWrap">
+        <table class="assets-table">
+          <thead>
+            <tr>
+              <th>Preview</th>
+              <th>Asset Name & Path</th>
+              <th>Category</th>
+              <th>Resolution</th>
+              <th>Format</th>
+              <th>File Size</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="assetsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: MOTION & VIDEO LAB
+       ========================================================================== -->
+  <section id="motion" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Motion Studio</div>
+        <h2 class="section-title">Motion & Video Transparency Lab</h2>
+        <p class="section-desc">
+          Sore provides high-definition motion graphics in transparent WebM (Alpha Channel), Green Screen Chroma Key for video creators, and looping animated GIFs for stickers and headers.
+        </p>
+      </div>
+
+      <div class="motion-lab-wrap">
+        <div class="motion-controls">
+          <div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: #FFFFFF; margin-bottom: 4px;">Test Background Transparency</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Toggle stage backgrounds to inspect alpha channel fidelity on transparent videos:</p>
+          </div>
+          <div class="bg-switcher-group">
+            <button class="bg-switcher-btn active" onclick="setMotionBg('bg-dark', this)">Dark Obsidian</button>
+            <button class="bg-switcher-btn" onclick="setMotionBg('bg-checkered', this)">Checkered Alpha</button>
+            <button class="bg-switcher-btn" onclick="setMotionBg('bg-white', this)">White Canvas</button>
+            <button class="bg-switcher-btn" onclick="setMotionBg('bg-gradient', this)">Sunset Gradient</button>
+          </div>
+        </div>
+
+        <div class="motion-grid">
+          <!-- Motion 1 -->
+          <div class="motion-feature-card">
+            <div class="motion-stage bg-dark" id="motionStage1">
+              <video src="motion/sore_transparent.webm" autoplay loop muted playsinline controls></video>
+            </div>
+            <div class="motion-info">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="asset-category-tag">Alpha WebM</span>
+                <span class="asset-size-tag">4.02 MB</span>
+              </div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: #fff;">sore_transparent.webm</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">
+                WebM video with native alpha channel transparency. Engineered for modern web browsers, OBS stream overlays, and motion cards.
+              </p>
+              <div style="display: flex; gap: 8px; margin-top: 8px;">
+                <button class="btn btn-secondary" style="flex: 1; font-size: 0.8rem;" onclick="copyText('motion/sore_transparent.webm', 'Path')">Copy Path</button>
+                <a href="motion/sore_transparent.webm" download class="btn btn-primary" style="font-size: 0.8rem;">Download</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Motion 2 -->
+          <div class="motion-feature-card">
+            <div class="motion-stage bg-dark" id="motionStage2">
+              <video src="motion/sore-green-screen.mp4" autoplay loop muted playsinline controls></video>
+            </div>
+            <div class="motion-info">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="asset-category-tag">Chroma Key</span>
+                <span class="asset-size-tag">1.61 MB</span>
+              </div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: #fff;">sore-green-screen.mp4</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">
+                Standard chroma key green screen footage for video editors (Premiere Pro, DaVinci Resolve, CapCut, After Effects) for easy compositing.
+              </p>
+              <div style="display: flex; gap: 8px; margin-top: 8px;">
+                <button class="btn btn-secondary" style="flex: 1; font-size: 0.8rem;" onclick="copyText('motion/sore-green-screen.mp4', 'Path')">Copy Path</button>
+                <a href="motion/sore-green-screen.mp4" download class="btn btn-primary" style="font-size: 0.8rem;">Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 7: IN-ACTION MOCKUPS
+       ========================================================================== -->
+  <section id="mockups" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Real-World Context</div>
+        <h2 class="section-title">Interface & Ecosystem Showcase</h2>
+        <p class="section-desc">
+          Interactive examples of Sore brand assets deployed across Discord music playback cards, web dashboard headers, and community announcement embeds.
+        </p>
+      </div>
+
+      <div class="mockup-tabs">
+        <button class="mockup-tab-btn active" onclick="switchMockup('music', this)">Music Card Player</button>
+        <button class="mockup-tab-btn" onclick="switchMockup('home', this)">Web Dashboard Header</button>
+        <button class="mockup-tab-btn" onclick="switchMockup('rules', this)">Community Server Rules</button>
+        <button class="mockup-tab-btn" onclick="switchMockup('social', this)">Social OpenGraph Card</button>
+      </div>
+
+      <div class="mockup-display" id="mockupDisplay">
+        <!-- Default Mockup: Music Card -->
+        <div class="discord-card-mock" id="mockupInner">
+          <div class="discord-mock-banner">
+            <img src="banner/banner-music.png" alt="Sore Music Card Banner">
+          </div>
+          <div class="discord-mock-content">
+            <div class="discord-track-info">
+              <div class="discord-track-art">
+                <img src="favicon/android-chrome-192x192.png" alt="Album Art">
+              </div>
+              <div class="discord-track-meta">
+                <span class="discord-track-title">Sunset Chill Beats (24-bit FLAC)</span>
+                <span class="discord-track-artist">Now Playing via Sore Music • Lounge Room</span>
+              </div>
+            </div>
+            <div class="discord-controls">
+              <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">02:45 / 04:12</span>
+              <div class="discord-btn-play">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 8: BRAND VOICE & GUIDELINES
+       ========================================================================== -->
+  <section id="guidelines" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Voice & Tone</div>
+        <h2 class="section-title">Brand Voice & Writing Guidelines</h2>
+        <p class="section-desc">
+          Sore's communication principles are crafted to be warm, soothing, responsive, and completely free from technical clutter.
+        </p>
+      </div>
+
+      <div class="voice-grid">
+        <div class="voice-card">
+          <span class="voice-badge">Tone 01</span>
+          <h3 class="voice-title">Warm & Soothing</h3>
+          <p class="voice-desc">
+            Communicate with welcoming warmth like coffee at golden hour. Avoid cold or robotic error codes; always suggest an immediate solution if track playback fails.
+          </p>
+        </div>
+
+        <div class="voice-card">
+          <span class="voice-badge">Tone 02</span>
+          <h3 class="voice-title">Crisp & Responsive</h3>
+          <p class="voice-desc">
+            Acknowledge commands promptly and concisely. Display song titles, artists, and playback timers clearly without cluttered chat spam.
+          </p>
+        </div>
+
+        <div class="voice-card">
+          <span class="voice-badge">Tone 03</span>
+          <h3 class="voice-title">Respectful & Inclusive</h3>
+          <p class="voice-desc">
+            Celebrate all music genres and communities without bias. Maintain uniform button layouts and command syntax so new listeners and server admins feel right at home.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 9: DEVELOPER & DESIGNER UTILITIES
+       ========================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Export & Dev Tokens</div>
+        <h2 class="section-title">CSS Variables & Tokens Snippet</h2>
+        <p class="section-desc">
+          Integrate official Sore CSS variables into web dashboards, bot embed themes, or custom frontends to ensure brand fidelity.
+        </p>
+      </div>
+
+      <div class="code-box">
+        <div class="code-box-header">
+          <span class="code-box-title">CSS Variables (Sore Theme Tokens)</span>
+          <button class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.78rem;" onclick="copyAllCssVars()">
+            Copy CSS Code
+          </button>
+        </div>
+<pre id="cssTokensCode">/* Sore Brand Official Tokens — No Blue / No Purple */
+:root {
+  --sore-rose: #F05789;        /* Primary Sunset Rose */
+  --sore-rose-hover: #FF6E9D;  /* Hover State */
+  --sore-amber: #E58B43;       /* Dusk Atmosphere */
+  --sore-gold: #F59E0B;        /* High-fidelity Accent */
+
+  --sore-bg-base: #090A0D;     /* Main Canvas */
+  --sore-bg-surface: #111317;  /* Sidebar & Surface */
+  --sore-bg-card: #16191E;     /* Cards & Modules */
+  --sore-bg-elevated: #22262F; /* Floating Dialogs */
+
+  --sore-border: rgba(255, 255, 255, 0.08);
+  --sore-border-active: #F05789;
+
+  --sore-text-primary: #FFFFFF;
+  --sore-text-muted: #9CA3AF;
+  --sore-text-dim: #6B7280;
+
+  --sore-status-live: #10B981;
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-brand-logo" style="width: 36px; height: 36px;">
+            <img src="favicon/android-chrome-192x192.png" alt="Sore Logo">
+          </div>
+          <div>
+            <div class="footer-brand-title">SORE BRAND BOOK</div>
+            <div style="font-size: 0.8rem; color: var(--text-dim);">Official Digital Guidelines & Asset Portal</div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#overview" class="footer-link">Overview</a>
+          <a href="#logo" class="footer-link">Logo Guidelines</a>
+          <a href="#colors" class="footer-link">Color Tokens</a>
+          <a href="#typography" class="footer-link">Typography</a>
+          <a href="#assets" class="footer-link">Assets (43)</a>
+          <a href="#motion" class="footer-link">Motion Lab</a>
+          <a href="#mockups" class="footer-link">Showcase</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 <strong>Sore App</strong>. All rights reserved.
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: var(--radius-full); background: var(--sore-rose);"></span>
+          Crafted with Modern Minimalist Dark Style (0% Blue/Purple).
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL LIGHTBOX
+       ========================================================================== -->
+  <div class="modal-overlay" id="lightboxModal" onclick="closeModalOnOverlay(event)">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeModal()" title="Close (Esc)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <!-- Media Stage -->
+      <div class="modal-media-stage checkered" id="modalMediaStage">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Info Sidebar -->
+      <div class="modal-sidebar">
+        <div>
+          <div class="modal-nav-btns">
+            <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.78rem;" onclick="navigateModal(-1)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg> Previous
+            </button>
+            <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.78rem;" onclick="navigateModal(1)">
+              Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); margin-left: auto;" id="modalIndexCount">1 / 43</span>
+          </div>
+
+          <span class="asset-category-tag" id="modalCategory">Logos & Marks</span>
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin: 6px 0 4px;" id="modalTitle">Asset Title</h3>
+          <div class="asset-filename" id="modalFilename">path/to/asset.png</div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 24px;" id="modalDesc">
+            Description of the asset.
+          </p>
+
+          <!-- Specs Table -->
+          <div style="background: #0E1015; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.82rem; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+              <span style="color: var(--text-dim);">Resolution:</span>
+              <strong style="color: var(--text-main); font-family: var(--font-mono);" id="modalRes">1920 × 1080 px</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.82rem; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+              <span style="color: var(--text-dim);">File Size:</span>
+              <strong style="color: var(--text-main); font-family: var(--font-mono);" id="modalSize">1.4 MB</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.82rem; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+              <span style="color: var(--text-dim);">Format:</span>
+              <strong style="color: var(--sore-rose); font-family: var(--font-mono);" id="modalExt">PNG</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.82rem; padding: 6px 0;">
+              <span style="color: var(--text-dim);">Directory:</span>
+              <strong style="color: var(--text-main); font-family: var(--font-mono);" id="modalFolder">banner</strong>
+            </div>
+          </div>
+
+          <!-- Transparency background toggle -->
+          <div style="margin-bottom: 24px;">
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px;">
+              Background Mode
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.75rem;" onclick="setModalBg('checkered')">Checkered</button>
+              <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.75rem;" onclick="setModalBg('dark')">Dark</button>
+              <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.75rem;" onclick="setModalBg('white')">White</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button class="btn btn-secondary" id="modalCopyBtn" onclick="copyModalPath()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy Relative Path
+          </button>
+          <a href="#" download id="modalDownloadBtn" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download Master File
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </span>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT APPLICATION LOGIC
+       ========================================================================== -->
+  <script>
+    // Asset database embedded directly
+    const RAW_ASSETS = [
+  {
+    "id": 1,
+    "folder": "brand",
+    "category": "Brand System",
+    "name": "brand-logo-hd-16x9.png",
+    "title": "Brand Logo Hd 16X9",
+    "path": "brand/brand-logo-hd-16x9.png",
+    "ext": "PNG",
+    "size": "84.9 KB",
+    "bytes": 86942,
+    "width": 3840,
+    "height": 2160,
+    "resolution": "3840 \u00d7 2160 px",
+    "type": "image",
+    "desc": "Master 16:9 ultra-high-resolution brand showcase mark with generous breathing room for presentations and wallpapers."
+  },
+  {
+    "id": 2,
+    "folder": "brand",
+    "category": "Brand System",
+    "name": "brand-logo-hd-1x1.png",
+    "title": "Brand Logo Hd 1X1",
+    "path": "brand/brand-logo-hd-1x1.png",
+    "ext": "PNG",
+    "size": "143.1 KB",
+    "bytes": 146492,
+    "width": 4096,
+    "height": 4096,
+    "resolution": "4096 \u00d7 4096 px",
+    "type": "image",
+    "desc": "Master 4096\u00d74096 square brand emblem with crystal-clear edges for ultra-high-DPI surfaces."
+  },
+  {
+    "id": 3,
+    "folder": "brand",
+    "category": "Brand System",
+    "name": "sore-brands.svg",
+    "title": "Sore Brands",
+    "path": "brand/sore-brands.svg",
+    "ext": "SVG",
+    "size": "372.0 KB",
+    "bytes": 380965,
+    "width": null,
+    "height": null,
+    "resolution": "Vector SVG",
+    "type": "image",
+    "desc": "Scalable vector branding package for print, merchandise, and responsive vector rendering."
+  },
+  {
+    "id": 4,
+    "folder": "logo",
+    "category": "Logos & Marks",
+    "name": "logo-2.png",
+    "title": "Logo 2",
+    "path": "logo/logo-2.png",
+    "ext": "PNG",
+    "size": "536.3 KB",
+    "bytes": 549166,
+    "width": 1024,
+    "height": 1024,
+    "resolution": "1024 \u00d7 1024 px",
+    "type": "image",
+    "desc": "Alternate high-contrast logo variation optimized for dark UI surfaces."
+  },
+  {
+    "id": 5,
+    "folder": "logo",
+    "category": "Logos & Marks",
+    "name": "logo-hd-1920.png",
+    "title": "Logo Hd 1920",
+    "path": "logo/logo-hd-1920.png",
+    "ext": "PNG",
+    "size": "57.5 KB",
+    "bytes": 58871,
+    "width": 1920,
+    "height": 1920,
+    "resolution": "1920 \u00d7 1920 px",
+    "type": "image",
+    "desc": "Ultra 1920px crisp silhouette mark for large format displays and 4K graphics."
+  },
+  {
+    "id": 6,
+    "folder": "logo",
+    "category": "Logos & Marks",
+    "name": "logo-hd-512.png",
+    "title": "Logo Hd 512",
+    "path": "logo/logo-hd-512.png",
+    "ext": "PNG",
+    "size": "12.3 KB",
+    "bytes": 12594,
+    "width": 512,
+    "height": 512,
+    "resolution": "512 \u00d7 512 px",
+    "type": "image",
+    "desc": "Standard 512px icon silhouette ideal for social profiles, bot avatars, and buttons."
+  },
+  {
+    "id": 7,
+    "folder": "logo",
+    "category": "Logos & Marks",
+    "name": "logo-hd-fullhd.png",
+    "title": "Logo Hd Fullhd",
+    "path": "logo/logo-hd-fullhd.png",
+    "ext": "PNG",
+    "size": "28.9 KB",
+    "bytes": 29571,
+    "width": 1080,
+    "height": 1080,
+    "resolution": "1080 \u00d7 1080 px",
+    "type": "image",
+    "desc": "Full HD 1080px crisp silhouette mark for headers and video overlays."
+  },
+  {
+    "id": 8,
+    "folder": "logo",
+    "category": "Logos & Marks",
+    "name": "logo.png",
+    "title": "Logo",
+    "path": "logo/logo.png",
+    "ext": "PNG",
+    "size": "665.9 KB",
+    "bytes": 681872,
+    "width": 1024,
+    "height": 1024,
+    "resolution": "1024 \u00d7 1024 px",
+    "type": "image",
+    "desc": "Primary full-color Sore application logo with radiant sunset gradient halo."
+  },
+  {
+    "id": 9,
+    "folder": "logo",
+    "category": "Logos & Marks",
+    "name": "sore-logo.svg",
+    "title": "Sore Logo",
+    "path": "logo/sore-logo.svg",
+    "ext": "SVG",
+    "size": "873.5 KB",
+    "bytes": 894450,
+    "width": null,
+    "height": null,
+    "resolution": "Vector SVG",
+    "type": "image",
+    "desc": "Vector master logo for infinite crisp scaling across web and mobile viewports."
+  },
+  {
+    "id": 10,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "banner-1.png",
+    "title": "Banner 1",
+    "path": "banner/banner-1.png",
+    "ext": "PNG",
+    "size": "1.49 MB",
+    "bytes": 1561988,
+    "width": 2172,
+    "height": 724,
+    "resolution": "2172 \u00d7 724 px",
+    "type": "image",
+    "desc": "Wide server header banner preset 01 with warm ambient dusk color gradient."
+  },
+  {
+    "id": 11,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "banner-2.png",
+    "title": "Banner 2",
+    "path": "banner/banner-2.png",
+    "ext": "PNG",
+    "size": "1.57 MB",
+    "bytes": 1647254,
+    "width": 2172,
+    "height": 724,
+    "resolution": "2172 \u00d7 724 px",
+    "type": "image",
+    "desc": "Wide server header banner preset 02 featuring acoustic waveform resonance."
+  },
+  {
+    "id": 12,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "banner-3.png",
+    "title": "Banner 3",
+    "path": "banner/banner-3.png",
+    "ext": "PNG",
+    "size": "1.37 MB",
+    "bytes": 1438103,
+    "width": 2172,
+    "height": 724,
+    "resolution": "2172 \u00d7 724 px",
+    "type": "image",
+    "desc": "Wide server header banner preset 03 with clean minimalist typography and dark tone."
+  },
+  {
+    "id": 13,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "banner-4.png",
+    "title": "Banner 4",
+    "path": "banner/banner-4.png",
+    "ext": "PNG",
+    "size": "1.44 MB",
+    "bytes": 1509228,
+    "width": 2172,
+    "height": 724,
+    "resolution": "2172 \u00d7 724 px",
+    "type": "image",
+    "desc": "Wide server header banner preset 04 with modern geometric framing."
+  },
+  {
+    "id": 14,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "banner-music.png",
+    "title": "Banner Music",
+    "path": "banner/banner-music.png",
+    "ext": "PNG",
+    "size": "129.6 KB",
+    "bytes": 132691,
+    "width": 854,
+    "height": 215,
+    "resolution": "854 \u00d7 215 px",
+    "type": "image",
+    "desc": "Compact 854\u00d7215 music player banner specifically proportioned for Discord now-playing cards and widgets."
+  },
+  {
+    "id": 15,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "community-guidelines.png",
+    "title": "Community Guidelines",
+    "path": "banner/community-guidelines.png",
+    "ext": "PNG",
+    "size": "1020.8 KB",
+    "bytes": 1045279,
+    "width": 1916,
+    "height": 821,
+    "resolution": "1916 \u00d7 821 px",
+    "type": "image",
+    "desc": "Official community rules & guidelines banner for Discord verification and welcome channels."
+  },
+  {
+    "id": 16,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "create-ticket.png",
+    "title": "Create Ticket",
+    "path": "banner/create-ticket.png",
+    "ext": "PNG",
+    "size": "400.7 KB",
+    "bytes": 410332,
+    "width": 1024,
+    "height": 360,
+    "resolution": "1024 \u00d7 360 px",
+    "type": "image",
+    "desc": "Support desk banner for ticket creation, bug reports, and customer service embeds."
+  },
+  {
+    "id": 17,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "help-and-support.png",
+    "title": "Help And Support",
+    "path": "banner/help-and-support.png",
+    "ext": "PNG",
+    "size": "1.16 MB",
+    "bytes": 1216521,
+    "width": 1916,
+    "height": 821,
+    "resolution": "1916 \u00d7 821 px",
+    "type": "image",
+    "desc": "Knowledge base and support center header banner version 1."
+  },
+  {
+    "id": 18,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "help-and-support1.png",
+    "title": "Help And Support1",
+    "path": "banner/help-and-support1.png",
+    "ext": "PNG",
+    "size": "1.02 MB",
+    "bytes": 1070618,
+    "width": 1916,
+    "height": 821,
+    "resolution": "1916 \u00d7 821 px",
+    "type": "image",
+    "desc": "Knowledge base and support center header banner version 2 with updated visual balance."
+  },
+  {
+    "id": 19,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "help-menu.png",
+    "title": "Help Menu",
+    "path": "banner/help-menu.png",
+    "ext": "PNG",
+    "size": "177.4 KB",
+    "bytes": 181696,
+    "width": 1024,
+    "height": 254,
+    "resolution": "1024 \u00d7 254 px",
+    "type": "image",
+    "desc": "Command list and help documentation quick-reference banner."
+  },
+  {
+    "id": 20,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "hero-1920x1080.png",
+    "title": "Hero 1920X1080",
+    "path": "banner/hero-1920x1080.png",
+    "ext": "PNG",
+    "size": "1.47 MB",
+    "bytes": 1537807,
+    "width": 1920,
+    "height": 1080,
+    "resolution": "1920 \u00d7 1080 px",
+    "type": "image",
+    "desc": "Official 1080p hero banner graphic designed for website splash screens and desktop headers."
+  },
+  {
+    "id": 21,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "home.png",
+    "title": "Home",
+    "path": "banner/home.png",
+    "ext": "PNG",
+    "size": "1.39 MB",
+    "bytes": 1460449,
+    "width": 1983,
+    "height": 793,
+    "resolution": "1983 \u00d7 793 px",
+    "type": "image",
+    "desc": "Panoramic home portal banner with ambient sunset glow and brand typography."
+  },
+  {
+    "id": 22,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "og-image-2.png",
+    "title": "Og Image 2",
+    "path": "banner/og-image-2.png",
+    "ext": "PNG",
+    "size": "1.37 MB",
+    "bytes": 1432104,
+    "width": 1983,
+    "height": 793,
+    "resolution": "1983 \u00d7 793 px",
+    "type": "image",
+    "desc": "Alternate OpenGraph social preview card with centered brand monogram."
+  },
+  {
+    "id": 23,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "og-image.png",
+    "title": "Og Image",
+    "path": "banner/og-image.png",
+    "ext": "PNG",
+    "size": "1.35 MB",
+    "bytes": 1418700,
+    "width": 1983,
+    "height": 793,
+    "resolution": "1983 \u00d7 793 px",
+    "type": "image",
+    "desc": "Primary OpenGraph social preview image (1200\u00d7630 equivalent) for link shares on Twitter/X, Discord, and Slack."
+  },
+  {
+    "id": 24,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "req-song.png",
+    "title": "Req Song",
+    "path": "banner/req-song.png",
+    "ext": "PNG",
+    "size": "1.39 MB",
+    "bytes": 1455949,
+    "width": 1983,
+    "height": 793,
+    "resolution": "1983 \u00d7 793 px",
+    "type": "image",
+    "desc": "Interactive song request queue banner for music commands and playback lounges."
+  },
+  {
+    "id": 25,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "ticket-banner.png",
+    "title": "Ticket Banner",
+    "path": "banner/ticket-banner.png",
+    "ext": "PNG",
+    "size": "1.42 MB",
+    "bytes": 1484131,
+    "width": 1916,
+    "height": 821,
+    "resolution": "1916 \u00d7 821 px",
+    "type": "image",
+    "desc": "Dedicated ticket category banner for Discord server channels."
+  },
+  {
+    "id": 26,
+    "folder": "banner",
+    "category": "Banners & Headers",
+    "name": "welcome-to-sore-community.png",
+    "title": "Welcome To Sore Community",
+    "path": "banner/welcome-to-sore-community.png",
+    "ext": "PNG",
+    "size": "892.3 KB",
+    "bytes": 913757,
+    "width": 1915,
+    "height": 821,
+    "resolution": "1915 \u00d7 821 px",
+    "type": "image",
+    "desc": "Onboarding community banner welcoming new users and music enthusiasts."
+  },
+  {
+    "id": 27,
+    "folder": "bg",
+    "category": "Backgrounds",
+    "name": "bg.png",
+    "title": "Bg",
+    "path": "bg/bg.png",
+    "ext": "PNG",
+    "size": "1.29 MB",
+    "bytes": 1349837,
+    "width": 1672,
+    "height": 941,
+    "resolution": "1672 \u00d7 941 px",
+    "type": "image",
+    "desc": "Ambient sunset atmospheric background graphic with warm rose and carbon dark tones."
+  },
+  {
+    "id": 28,
+    "folder": "bg",
+    "category": "Backgrounds",
+    "name": "bg.svg",
+    "title": "Bg",
+    "path": "bg/bg.svg",
+    "ext": "SVG",
+    "size": "1.52 MB",
+    "bytes": 1595819,
+    "width": null,
+    "height": null,
+    "resolution": "Vector SVG",
+    "type": "image",
+    "desc": "Infinite resolution vector background with radiant sunset ambient mesh."
+  },
+  {
+    "id": 29,
+    "folder": "favicon",
+    "category": "Icons & Favicons",
+    "name": "android-chrome-192x192.png",
+    "title": "Android Chrome 192X192",
+    "path": "favicon/android-chrome-192x192.png",
+    "ext": "PNG",
+    "size": "43.8 KB",
+    "bytes": 44867,
+    "width": 192,
+    "height": 192,
+    "resolution": "192 \u00d7 192 px",
+    "type": "image",
+    "desc": "Android PWA standard launcher icon."
+  },
+  {
+    "id": 30,
+    "folder": "favicon",
+    "category": "Icons & Favicons",
+    "name": "android-chrome-512x512.png",
+    "title": "Android Chrome 512X512",
+    "path": "favicon/android-chrome-512x512.png",
+    "ext": "PNG",
+    "size": "265.0 KB",
+    "bytes": 271385,
+    "width": 512,
+    "height": 512,
+    "resolution": "512 \u00d7 512 px",
+    "type": "image",
+    "desc": "Android PWA high-definition splash screen icon."
+  },
+  {
+    "id": 31,
+    "folder": "favicon",
+    "category": "Icons & Favicons",
+    "name": "apple-touch-icon.png",
+    "title": "Apple Touch Icon",
+    "path": "favicon/apple-touch-icon.png",
+    "ext": "PNG",
+    "size": "39.6 KB",
+    "bytes": 40546,
+    "width": 180,
+    "height": 180,
+    "resolution": "180 \u00d7 180 px",
+    "type": "image",
+    "desc": "iOS home screen web clip icon with pre-rendered rounded corners."
+  },
+  {
+    "id": 32,
+    "folder": "favicon",
+    "category": "Icons & Favicons",
+    "name": "favicon-16x16.png",
+    "title": "Favicon 16X16",
+    "path": "favicon/favicon-16x16.png",
+    "ext": "PNG",
+    "size": "895 B",
+    "bytes": 895,
+    "width": 16,
+    "height": 16,
+    "resolution": "16 \u00d7 16 px",
+    "type": "image",
+    "desc": "Compact 16\u00d716 favicon for low-DPI browser tabs."
+  },
+  {
+    "id": 33,
+    "folder": "favicon",
+    "category": "Icons & Favicons",
+    "name": "favicon-32x32.png",
+    "title": "Favicon 32X32",
+    "path": "favicon/favicon-32x32.png",
+    "ext": "PNG",
+    "size": "2.5 KB",
+    "bytes": 2597,
+    "width": 32,
+    "height": 32,
+    "resolution": "32 \u00d7 32 px",
+    "type": "image",
+    "desc": "Retina 32\u00d732 favicon for high-DPI desktop tabs and bookmarks."
+  },
+  {
+    "id": 34,
+    "folder": "favicon",
+    "category": "Icons & Favicons",
+    "name": "favicon.ico",
+    "title": "Favicon",
+    "path": "favicon/favicon.ico",
+    "ext": "ICO",
+    "size": "15.0 KB",
+    "bytes": 15406,
+    "width": 48,
+    "height": 48,
+    "resolution": "48 \u00d7 48 px",
+    "type": "image",
+    "desc": "Multi-layer browser address bar and desktop favicon file."
+  },
+  {
+    "id": 35,
+    "folder": "favicon",
+    "category": "Icons & Favicons",
+    "name": "site.webmanifest",
+    "title": "Site",
+    "path": "favicon/site.webmanifest",
+    "ext": "WEBMANIFEST",
+    "size": "653 B",
+    "bytes": 653,
+    "width": null,
+    "height": null,
+    "resolution": "JSON Manifest",
+    "type": "manifest",
+    "desc": "Progressive Web App manifest defining theme color (#0a0a0a), app name, and icon links."
+  },
+  {
+    "id": 36,
+    "folder": "motion",
+    "category": "Motion & Video",
+    "name": "banner-motion-hd.mp4",
+    "title": "Banner Motion Hd",
+    "path": "motion/banner-motion-hd.mp4",
+    "ext": "MP4",
+    "size": "2.56 MB",
+    "bytes": 2679257,
+    "width": null,
+    "height": null,
+    "resolution": "Motion Video",
+    "type": "video",
+    "desc": "High-definition 1080p looping motion graphic video for video headers and stream overlays."
+  },
+  {
+    "id": 37,
+    "folder": "motion",
+    "category": "Motion & Video",
+    "name": "banner-motion-low.mp4",
+    "title": "Banner Motion Low",
+    "path": "motion/banner-motion-low.mp4",
+    "ext": "MP4",
+    "size": "508.5 KB",
+    "bytes": 520669,
+    "width": null,
+    "height": null,
+    "resolution": "Motion Video",
+    "type": "video",
+    "desc": "Optimized lightweight looping motion video for fast web loading and mobile networks."
+  },
+  {
+    "id": 38,
+    "folder": "motion",
+    "category": "Motion & Video",
+    "name": "banner-motion.gif",
+    "title": "Banner Motion",
+    "path": "motion/banner-motion.gif",
+    "ext": "GIF",
+    "size": "6.23 MB",
+    "bytes": 6531298,
+    "width": 480,
+    "height": 270,
+    "resolution": "480 \u00d7 270 px",
+    "type": "image",
+    "desc": "Animated GIF banner loop compatible with legacy Markdown and Discord embeds."
+  },
+  {
+    "id": 39,
+    "folder": "motion",
+    "category": "Motion & Video",
+    "name": "sore-green-screen.mp4",
+    "title": "Sore Green Screen",
+    "path": "motion/sore-green-screen.mp4",
+    "ext": "MP4",
+    "size": "1.61 MB",
+    "bytes": 1693259,
+    "width": null,
+    "height": null,
+    "resolution": "Motion Video",
+    "type": "video",
+    "desc": "Chroma-key green screen video asset for video editors, YouTube intros, and TikTok/Reels compositing."
+  },
+  {
+    "id": 40,
+    "folder": "motion",
+    "category": "Motion & Video",
+    "name": "sore_transparent.mp4",
+    "title": "Sore Transparent",
+    "path": "motion/sore_transparent.mp4",
+    "ext": "MP4",
+    "size": "4.02 MB",
+    "bytes": 4212844,
+    "width": null,
+    "height": null,
+    "resolution": "Motion Video",
+    "type": "video",
+    "desc": "Motion video animation with transparent styling for digital signage and video production."
+  },
+  {
+    "id": 41,
+    "folder": "motion",
+    "category": "Motion & Video",
+    "name": "sore_transparent.webm",
+    "title": "Sore Transparent",
+    "path": "motion/sore_transparent.webm",
+    "ext": "WEBM",
+    "size": "4.02 MB",
+    "bytes": 4212844,
+    "width": null,
+    "height": null,
+    "resolution": "Motion Video",
+    "type": "video",
+    "desc": "Alpha-channel transparent WebM video graphic designed for OBS, stream overlays, and modern browsers."
+  },
+  {
+    "id": 42,
+    "folder": "motion",
+    "category": "Motion & Video",
+    "name": "sore_transparent_sticker.gif",
+    "title": "Sore Transparent Sticker",
+    "path": "motion/sore_transparent_sticker.gif",
+    "ext": "GIF",
+    "size": "470.0 KB",
+    "bytes": 481257,
+    "width": 320,
+    "height": 320,
+    "resolution": "320 \u00d7 320 px",
+    "type": "image",
+    "desc": "Animated 320\u00d7320 transparent sticker for Discord chats, reactions, and notifications."
+  },
+  {
+    "id": 43,
+    "folder": "motion",
+    "category": "Motion & Video",
+    "name": "sore_transparent_wide.gif",
+    "title": "Sore Transparent Wide",
+    "path": "motion/sore_transparent_wide.gif",
+    "ext": "GIF",
+    "size": "459.5 KB",
+    "bytes": 470489,
+    "width": 360,
+    "height": 202,
+    "resolution": "360 \u00d7 202 px",
+    "type": "image",
+    "desc": "Animated wide transparent sticker loop for Discord banners and message footers."
+  }
+];
+
+    let activeCategory = 'All Assets';
+    let activeFormat = 'ALL';
+    let searchQuery = '';
+    let sortMode = 'default';
+    let viewMode = 'grid';
+    let currentModalIndex = 0;
+    let filteredAssets = [...RAW_ASSETS];
+
+    // Manifest content cache for site.webmanifest preview
+    const MANIFEST_CONTENT = `{"name": "Sore Discord Music Bot", "short_name": "Sore", "description": "High-quality Discord music bot with a modern web dashboard.", "theme_color": "#0a0a0a", "background_color": "#0a0a0a"}`;
+
+    // Initialize application on DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAssets();
+      setupKeyboardShortcuts();
+    });
+
+    // Render Assets based on filters and view mode
+    function renderAssets() {
+      // Filter logic
+      filteredAssets = RAW_ASSETS.filter(item => {
+        // Category check
+        const matchCategory = activeCategory === 'All Assets' || item.category === activeCategory;
+        // Format check
+        const matchFormat = activeFormat === 'ALL' || item.ext === activeFormat;
+        // Search check
+        const q = searchQuery.toLowerCase().trim();
+        const matchSearch = !q || 
+          item.name.toLowerCase().includes(q) || 
+          item.title.toLowerCase().includes(q) || 
+          item.category.toLowerCase().includes(q) || 
+          item.ext.toLowerCase().includes(q) || 
+          item.desc.toLowerCase().includes(q) ||
+          item.resolution.toLowerCase().includes(q);
+
+        return matchCategory && matchFormat && matchSearch;
+      });
+
+      // Sort logic
+      if (sortMode === 'name_asc') {
+        filteredAssets.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (sortMode === 'name_desc') {
+        filteredAssets.sort((a, b) => b.name.localeCompare(a.name));
+      } else if (sortMode === 'size_desc') {
+        filteredAssets.sort((a, b) => b.bytes - a.bytes);
+      } else if (sortMode === 'size_asc') {
+        filteredAssets.sort((a, b) => a.bytes - b.bytes);
+      }
+
+      // Update counters
+      document.getElementById('displayedCount').textContent = filteredAssets.length;
+      const filterStatus = document.getElementById('filterStatus');
+      if (searchQuery || activeCategory !== 'All Assets' || activeFormat !== 'ALL') {
+        filterStatus.textContent = `Filtered: ${activeCategory} ${activeFormat !== 'ALL' ? '(' + activeFormat + ')' : ''} ${searchQuery ? '• "' + searchQuery + '"' : ''}`;
+      } else {
+        filterStatus.textContent = '';
+      }
+
+      const gridEl = document.getElementById('assetsGrid');
+      const tableWrapEl = document.getElementById('assetsTableWrap');
+      const tableBodyEl = document.getElementById('assetsTableBody');
+
+      if (viewMode === 'grid') {
+        gridEl.style.display = 'grid';
+        tableWrapEl.style.display = 'none';
+
+        if (filteredAssets.length === 0) {
+          gridEl.innerHTML = `
+            <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px dashed var(--border-subtle);">
+              <div style="font-size: 2rem; margin-bottom: 12px;">🔍</div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 6px;">No assets match your search</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Try adjusting your search terms or reset the category filter.</p>
+              <button class="btn btn-secondary" style="margin-top: 16px;" onclick="resetFilters()">Reset Filters</button>
+            </div>
+          `;
+          return;
+        }
+
+        gridEl.innerHTML = filteredAssets.map((asset, index) => {
+          const isCheckered = asset.ext === 'PNG' || asset.ext === 'SVG' || asset.ext === 'GIF' || asset.ext === 'ICO';
+          let mediaMarkup = '';
+
+          if (asset.type === 'video') {
+            mediaMarkup = `
+              <video class="asset-video" src="${asset.path}" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()" onclick="openModalById(${asset.id})"></video>
+            `;
+          } else if (asset.type === 'manifest') {
+            mediaMarkup = `
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #34D399; padding: 16px; text-align: left; line-height: 1.4; opacity: 0.9;">
+                {"name": "Sore Music Bot",<br>"short_name": "Sore",<br>"theme_color": "#0a0a0a"}
+              </div>
+            `;
+          } else {
+            mediaMarkup = `
+              <img class="asset-thumb" src="${asset.path}" alt="${asset.name}" loading="lazy" onclick="openModalById(${asset.id})">
+            `;
+          }
+
+          return `
+            <div class="asset-card" data-id="${asset.id}" onclick="openModalById(${asset.id})" style="cursor: pointer;">
+              <div class="asset-thumb-wrap ${isCheckered ? 'checkered' : ''}">
+                <span class="asset-badge-format ${asset.type === 'video' ? 'video' : ''}">${asset.ext}</span>
+                <button class="asset-zoom-btn" onclick="event.stopPropagation(); openModalById(${asset.id})" title="Inspect & Details">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </button>
+                ${mediaMarkup}
+              </div>
+
+              <div class="asset-body">
+                <div>
+                  <div class="asset-meta-top">
+                    <span class="asset-category-tag">${asset.category}</span>
+                    <span class="asset-size-tag">${asset.size}</span>
+                  </div>
+                  <h3 class="asset-title" title="${asset.title}">${asset.title}</h3>
+                  <div class="asset-filename">${asset.path}</div>
+                  <p class="asset-desc">${asset.desc}</p>
+
+                  <div class="asset-specs">
+                    <span class="asset-spec-item">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                      ${asset.resolution}
+                    </span>
+                    <span class="asset-spec-item">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                      ${asset.ext}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="asset-actions" onclick="event.stopPropagation()">
+                  <button class="btn-copy-path" onclick="copyText('${asset.path}', 'Path')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copy Path
+                  </button>
+                  <a href="${asset.path}" download="${asset.name}" class="btn-download" title="Download Asset">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+      } else {
+        // Table list view
+        gridEl.style.display = 'none';
+        tableWrapEl.style.display = 'block';
+
+        if (filteredAssets.length === 0) {
+          tableBodyEl.innerHTML = `
+            <tr>
+              <td colspan="7" style="text-align: center; padding: 40px; color: var(--text-muted);">
+                No assets match the active filter criteria.
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        tableBodyEl.innerHTML = filteredAssets.map(asset => {
+          return `
+            <tr>
+              <td style="width: 60px;">
+                <div class="table-thumb" onclick="openModalById(${asset.id})" style="cursor: pointer;">
+                  ${asset.type === 'video' ? 
+                    `<span style="font-size: 0.7rem; font-weight: 700; color: var(--sore-rose);">VID</span>` :
+                    `<img src="${asset.path}" alt="${asset.name}">`
+                  }
+                </div>
+              </td>
+              <td>
+                <div style="font-weight: 700; color: var(--text-main); cursor: pointer;" onclick="openModalById(${asset.id})">
+                  ${asset.title}
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">
+                  ${asset.path}
+                </div>
+              </td>
+              <td><span class="asset-category-tag">${asset.category}</span></td>
+              <td style="font-family: var(--font-mono);">${asset.resolution}</td>
+              <td><span class="asset-badge-format" style="position: static;">${asset.ext}</span></td>
+              <td style="font-family: var(--font-mono);">${asset.size}</td>
+              <td style="text-align: right;">
+                <div style="display: inline-flex; gap: 8px;">
+                  <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.75rem;" onclick="copyText('${asset.path}', 'Path')">
+                    Copy
+                  </button>
+                  <button class="btn btn-primary" style="padding: 6px 12px; font-size: 0.75rem;" onclick="openModalById(${asset.id})">
+                    View
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+    }
+
+    // Filter by Category
+    function filterCategory(cat, element) {
+      activeCategory = cat;
+      document.querySelectorAll('.category-pill').forEach(pill => pill.classList.remove('active'));
+      if (element) {
+        element.classList.add('active');
+      } else {
+        const allBtn = Array.from(document.querySelectorAll('.category-pill')).find(p => p.textContent.includes(cat));
+        if (allBtn) allBtn.classList.add('active');
+      }
+      renderAssets();
+    }
+
+    // Search Handler
+    function handleSearch(val) {
+      searchQuery = val;
+      renderAssets();
+    }
+
+    // Format Filter Handler
+    function handleFormatFilter(val) {
+      activeFormat = val;
+      renderAssets();
+    }
+
+    // Sort Handler
+    function handleSort(val) {
+      sortMode = val;
+      renderAssets();
+    }
+
+    // Set View Mode (Grid vs Table)
+    function setViewMode(mode) {
+      viewMode = mode;
+      document.getElementById('btnViewGrid').classList.toggle('active', mode === 'grid');
+      document.getElementById('btnViewTable').classList.toggle('active', mode === 'table');
+      renderAssets();
+    }
+
+    // Reset Filters
+    function resetFilters() {
+      activeCategory = 'All Assets';
+      activeFormat = 'ALL';
+      searchQuery = '';
+      sortMode = 'default';
+      document.getElementById('assetSearchInput').value = '';
+      document.getElementById('formatSelect').value = 'ALL';
+      document.getElementById('sortSelect').value = 'default';
+      document.querySelectorAll('.category-pill').forEach(pill => {
+        pill.classList.toggle('active', pill.textContent.includes('All Assets'));
+      });
+      renderAssets();
+    }
+
+    // ==========================================================================
+    // MODAL LIGHTBOX CONTROLS
+    // ==========================================================================
+    function openModalById(id) {
+      const index = RAW_ASSETS.findIndex(a => a.id === id);
+      if (index !== -1) {
+        currentModalIndex = index;
+        updateModalContent();
+        const modal = document.getElementById('lightboxModal');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function updateModalContent() {
+      const asset = RAW_ASSETS[currentModalIndex];
+      if (!asset) return;
+
+      document.getElementById('modalCategory').textContent = asset.category;
+      document.getElementById('modalTitle').textContent = asset.title;
+      document.getElementById('modalFilename').textContent = asset.path;
+      document.getElementById('modalDesc').textContent = asset.desc;
+      document.getElementById('modalRes').textContent = asset.resolution;
+      document.getElementById('modalSize').textContent = asset.size;
+      document.getElementById('modalExt').textContent = asset.ext;
+      document.getElementById('modalFolder').textContent = asset.folder;
+      document.getElementById('modalIndexCount').textContent = `${currentModalIndex + 1} / ${RAW_ASSETS.length}`;
+
+      const dlBtn = document.getElementById('modalDownloadBtn');
+      dlBtn.href = asset.path;
+      dlBtn.setAttribute('download', asset.name);
+
+      const stageEl = document.getElementById('modalMediaStage');
+      if (asset.type === 'video') {
+        stageEl.innerHTML = `
+          <video src="${asset.path}" autoplay loop controls playsinline style="max-height: 70vh; max-width: 100%;"></video>
+        `;
+      } else if (asset.type === 'manifest') {
+        stageEl.innerHTML = `
+          <div class="modal-manifest-view">
+            ${MANIFEST_CONTENT}
+          </div>
+        `;
+      } else {
+        stageEl.innerHTML = `
+          <img src="${asset.path}" alt="${asset.name}">
+        `;
+      }
+    }
+
+    function navigateModal(direction) {
+      currentModalIndex = (currentModalIndex + direction + RAW_ASSETS.length) % RAW_ASSETS.length;
+      updateModalContent();
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      // stop video if playing
+      const stageEl = document.getElementById('modalMediaStage');
+      const vid = stageEl.querySelector('video');
+      if (vid) vid.pause();
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target.id === 'lightboxModal') {
+        closeModal();
+      }
+    }
+
+    function setModalBg(type) {
+      const stage = document.getElementById('modalMediaStage');
+      stage.classList.remove('checkered', 'dark', 'white');
+      if (type === 'checkered') stage.classList.add('checkered');
+      if (type === 'dark') stage.style.background = '#090A0E';
+      if (type === 'white') stage.style.background = '#FFFFFF';
+      if (type === 'checkered') stage.style.background = '';
+    }
+
+    function copyModalPath() {
+      const asset = RAW_ASSETS[currentModalIndex];
+      if (asset) copyText(asset.path, 'Path');
+    }
+
+    // ==========================================================================
+    // CLIPBOARD & TOAST SYSTEM
+    // ==========================================================================
+    function copyText(text, label = 'Text') {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(`${label} copied: ${text}`);
+      }).catch(err => {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast(`${label} copied: ${text}`);
+      });
+    }
+
+    function copyColor(hex, name) {
+      copyText(hex, `Color ${name}`);
+    }
+
+    function copyAllCssVars() {
+      const code = document.getElementById('cssTokensCode').textContent;
+      copyText(code, 'CSS Tokens');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3200);
+    }
+
+    // ==========================================================================
+    // KEYBOARD NAVIGATION
+    // ==========================================================================
+    function setupKeyboardShortcuts() {
+      document.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('lightboxModal');
+        const isModalOpen = modal.classList.contains('active');
+
+        if (e.key === 'Escape' && isModalOpen) {
+          closeModal();
+        } else if (e.key === 'ArrowRight' && isModalOpen) {
+          navigateModal(1);
+        } else if (e.key === 'ArrowLeft' && isModalOpen) {
+          navigateModal(-1);
+        } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          const search = document.getElementById('assetSearchInput');
+          search.focus();
+          search.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+
+    // ==========================================================================
+    // MOTION LAB BACKGROUND CHANGER
+    // ==========================================================================
+    function setMotionBg(bgClass, element) {
+      document.querySelectorAll('.bg-switcher-btn').forEach(btn => btn.classList.remove('active'));
+      if (element) element.classList.add('active');
+
+      const stage1 = document.getElementById('motionStage1');
+      const stage2 = document.getElementById('motionStage2');
+
+      const allBgs = ['bg-dark', 'bg-white', 'bg-gradient', 'bg-checkered'];
+      allBgs.forEach(c => {
+        stage1.classList.remove(c);
+        stage2.classList.remove(c);
+      });
+
+      stage1.classList.add(bgClass);
+      stage2.classList.add(bgClass);
+    }
+
+    // ==========================================================================
+    // TYPE TESTER CONTROLS
+    // ==========================================================================
+    function changeFontSize(size) {
+      const input = document.getElementById('typeTesterInput');
+      const label = document.getElementById('fontSizeLabel');
+      input.style.fontSize = size + 'px';
+      label.textContent = size + 'px';
+    }
+
+    function updateTypeTester() {
+      // Reactive updates if needed
+    }
+
+    // ==========================================================================
+    // MOCKUP SWITCHER
+    // ==========================================================================
+    function switchMockup(type, element) {
+      document.querySelectorAll('.mockup-tab-btn').forEach(btn => btn.classList.remove('active'));
+      if (element) element.classList.add('active');
+
+      const display = document.getElementById('mockupDisplay');
+
+      if (type === 'music') {
+        display.innerHTML = `
+          <div class="discord-card-mock">
+            <div class="discord-mock-banner">
+              <img src="banner/banner-music.png" alt="Sore Music Card Banner">
+            </div>
+            <div class="discord-mock-content">
+              <div class="discord-track-info">
+                <div class="discord-track-art">
+                  <img src="favicon/android-chrome-192x192.png" alt="Album Art">
+                </div>
+                <div class="discord-track-meta">
+                  <span class="discord-track-title">Sunset Chill Beats (24-bit FLAC)</span>
+                  <span class="discord-track-artist">Now Playing via Sore Music • Lounge Room</span>
+                </div>
+              </div>
+              <div class="discord-controls">
+                <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">02:45 / 04:12</span>
+                <div class="discord-btn-play">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (type === 'home') {
+        display.innerHTML = `
+          <div style="width: 100%; max-width: 900px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);">
+            <img src="banner/home.png" alt="Home Banner Header" style="width: 100%; display: block;">
+          </div>
+        `;
+      } else if (type === 'rules') {
+        display.innerHTML = `
+          <div style="width: 100%; max-width: 860px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);">
+            <img src="banner/community-guidelines.png" alt="Community Guidelines Banner" style="width: 100%; display: block;">
+          </div>
+        `;
+      } else if (type === 'social') {
+        display.innerHTML = `
+          <div style="width: 100%; max-width: 800px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);">
+            <img src="banner/og-image.png" alt="Social Graph Card" style="width: 100%; display: block;">
+          </div>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
